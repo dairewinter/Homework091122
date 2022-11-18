@@ -46,6 +46,7 @@ public class Main {
         products.add(peach);
         products.add(apricot);
 
+
         System.out.println(Arrays.toString(products.toArray()));
 
         addProduct(strawberry);
@@ -68,7 +69,7 @@ public class Main {
         System.out.println(Arrays.toString(mechanics.toArray()));
         addMechanic(andrey);
 
-        List<Integer> multiplicationNumbers = new ArrayList<>();
+        HashSet<Integer> multiplicationNumbers = new HashSet<>();
         multiplicationNumbers.add(2);
         multiplicationNumbers.add(3);
         multiplicationNumbers.add(4);
@@ -78,7 +79,7 @@ public class Main {
         multiplicationNumbers.add(8);
         multiplicationNumbers.add(9);
 
-        List<MultiplicationTask> allTasks = new ArrayList<>(15);
+        HashSet<MultiplicationTask> allTasks = new HashSet<>(15);
         for (int firstNumber = 2; firstNumber <= 9; firstNumber++)
         {
             for (int secondNumber = firstNumber; secondNumber <= 9; secondNumber++)
@@ -86,10 +87,6 @@ public class Main {
                 allTasks.add(new MultiplicationTask(firstNumber, secondNumber));
             }
         }
-        Collections.shuffle(allTasks);
-        List<MultiplicationTask> chosenTasks = allTasks.subList(0, 15);
-
-        System.out.println(chosenTasks);
 
         Passport ruslan = new Passport("222333", "Русланов", "Руслан", "Русланович", LocalDate.of(1985, 12, 3));
         Passport timofey = new Passport("112233", "Тимофеев", "Тимофей", "Тимофеевич",  LocalDate.of(1993, 5, 18));
@@ -146,5 +143,6 @@ public class Main {
             System.out.println(Arrays.toString(passports.toArray()));
         }
     }
+
 
 }

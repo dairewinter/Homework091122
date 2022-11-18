@@ -39,4 +39,17 @@ public class Product {
     public String toString() {
         return "Продукт " + getName() + ", стоимость " + getCost() + ", количество " + getAmount();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Double.compare(product.cost, cost) == 0 && amount == product.amount && isBought == product.isBought && Objects.equals(name, product.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, cost, amount, isBought);
+    }
 }
