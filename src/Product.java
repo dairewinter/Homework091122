@@ -45,11 +45,11 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return Double.compare(product.cost, cost) == 0 && amount == product.amount && isBought == product.isBought && Objects.equals(name, product.name);
+        return Objects.equals(name, product.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, cost, amount, isBought);
+        return Objects.hash(name);
     }
 }

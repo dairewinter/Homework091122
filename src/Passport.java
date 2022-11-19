@@ -42,22 +42,22 @@ public class Passport {
     }
 
     @Override
-    public String toString() {
-        return "Номер паспорта: " + getPassportNumber() + ", ФИО владельца: " + getSurname() + " " + getName() + " " + getMiddleName() + " " + getBirthDate();
-
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Passport passport = (Passport) o;
-        return passportNumber.equals(passport.passportNumber) && surname.equals(passport.surname) && name.equals(passport.name) && Objects.equals(middleName, passport.middleName) && birthDate.equals(passport.birthDate);
+        return passportNumber.equals(passport.passportNumber);
     }
 
 
     @Override
     public int hashCode() {
-        return Objects.hash(passportNumber, surname, name, middleName, birthDate);
+        return Objects.hash(passportNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Номер паспорта: " + getPassportNumber() + ", ФИО владельца: " + getSurname() + " " + getName() + " " + getMiddleName() + " " + getBirthDate();
+
     }
 }

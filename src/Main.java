@@ -9,6 +9,7 @@ public class Main {
 
     static Set<Passport> passports = new HashSet<>();
 
+
     public static void main(String[] args) {
         List<Integer> numbers = new ArrayList<>(20);
 
@@ -27,9 +28,6 @@ public class Main {
         Product peach = new Product("персик", 5, 3);
         Product apricot = new Product("абрикос", 6, 3);
         Product strawberry = new Product("клубника", 5, 4);
-
-        Recipe soup = new Recipe(List.of(banana, apple, pears), 3, "суп");
-        Recipe salad = new Recipe(List.of(apple, pears, apricot), 2, "салат");
 
         Sponsor artem = new Sponsor("Артем", 1200);
         Sponsor grigory = new Sponsor("Григорий", 1000);
@@ -69,25 +67,6 @@ public class Main {
         System.out.println(Arrays.toString(mechanics.toArray()));
         addMechanic(andrey);
 
-        HashSet<Integer> multiplicationNumbers = new HashSet<>();
-        multiplicationNumbers.add(2);
-        multiplicationNumbers.add(3);
-        multiplicationNumbers.add(4);
-        multiplicationNumbers.add(5);
-        multiplicationNumbers.add(6);
-        multiplicationNumbers.add(7);
-        multiplicationNumbers.add(8);
-        multiplicationNumbers.add(9);
-
-        HashSet<MultiplicationTask> allTasks = new HashSet<>(15);
-        for (int firstNumber = 2; firstNumber <= 9; firstNumber++)
-        {
-            for (int secondNumber = firstNumber; secondNumber <= 9; secondNumber++)
-            {
-                allTasks.add(new MultiplicationTask(firstNumber, secondNumber));
-            }
-        }
-
         Passport ruslan = new Passport("222333", "Русланов", "Руслан", "Русланович", LocalDate.of(1985, 12, 3));
         Passport timofey = new Passport("112233", "Тимофеев", "Тимофей", "Тимофеевич",  LocalDate.of(1993, 5, 18));
         Passport leonid = new Passport("131313", "Леонидов", "Леонид", "Леонидович", LocalDate.of(1997, 1, 14));
@@ -96,7 +75,9 @@ public class Main {
         passports.add(timofey);
         passports.add(leonid);
         System.out.println(Arrays.toString(passports.toArray()));
-    }
+
+
+        }
 
     public static void addProduct(Product product){
         if(products.contains(product)){
