@@ -1,33 +1,52 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Recipe {
-    private List<Product> products;
+    private final HashSet<Product> products;
     private double totalCost;
-    private String name;
+    private final String name;
 
-    public Recipe(List<Product> products, double totalCost, String name) {
+    public Recipe(HashSet<Product> products, String name) {
         this.products = products;
-        this.totalCost = totalCost;
         this.name = name;
-    }
-
-    public double getTotalCost() {
-        for (int i = 0; i < (products.size()+1); i++) {
-            totalCost+= products.get(i).getCost();
-        }
-        return totalCost;
     }
 
     public String getName() {
         return name;
     }
 
-    public List<Product> getProducts(){
+    public void addProduct(Product product){
+        if (product == null){
+            return;
+        }
+        if (this.products.contains(product)){
+            throw new IllegalArgumentException("Продукт уже добавлен!");
+        } else {
+            this.products.add(product);
+        }
+    }
+
+    public double getTotalCost() {
+        double sum = 0;
+        for(Product product : products){
+            sum += product.getCost();
+        }
+        return sum;
+    }
+
+    public Set<Product> getProducts(){
         return products;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Recipe recipe = (Recipe) o;
+        return Objects.equals(name, recipe.name);
+    }
 
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
